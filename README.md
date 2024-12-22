@@ -144,6 +144,8 @@ pip install -r requirements.txt
 ```
 
 ---
+## Flow Diagram 
+![project flow diagram](https://github.com/amandeep-yadav/SRGAN-from-scatch-for-32-32-to-128-128/blob/main/img/Untitled%20diagram-2024-12-22-102054.png)
 
 ## 🤝 Contribution
 
