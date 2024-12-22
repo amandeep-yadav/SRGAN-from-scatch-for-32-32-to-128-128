@@ -101,15 +101,7 @@ python test.py --model_path downloads/srgan_generator.h5 --image_path path/to/yo
 
 Below is the architecture of the SRGAN used in this project:
 
-```
-+-------------------+       +-------------------+
-|   Low-Res Input   |       |   High-Res Output |
-+-------------------+       +-------------------+
-          |                           ^
-          |                           |
-    +-----------+       +---------------------+
-    | Generator | --->   |     Discriminator  |
-    +-----------+       +---------------------+
+![SRGAN Architecture](https://github.com/amandeep-yadav/SRGAN-from-scatch-for-32-32-to-128-128/blob/main/img/Screen_Shot_2020-07-19_at_11.13.45_AM_zsF2pa7.png)
 ```
 
 ---
