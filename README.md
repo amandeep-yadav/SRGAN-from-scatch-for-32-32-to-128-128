@@ -19,12 +19,14 @@ This project implements and trains a Super-Resolution Generative Adversarial Net
 
 ```
 ├── image_upscale_eval.py     # Script for model evaluation and visualization
+├── test.py                   # Script for testing the model
 ├── requirements.txt          # Dependencies for the project
 ├── training/                 # Contains scripts and configurations for training the SRGAN
 ├── data/                     # Dataset (low-res and high-res images)
 │   ├── kaggle_folder_32/     # Low-resolution images (32x32)
 │   └── kaggle_folder_128/    # High-resolution images (128x128)
-└── models/                   # Saved model files (e.g., SRGAN generator)
+├── models/                   # Saved model files (e.g., SRGAN generator)
+└── downloads/                # Pretrained models and training checkpoints
 ```
 
 ---
@@ -83,6 +85,44 @@ python image_upscale_eval.py
 
 ---
 
+### 4️⃣ Testing the Model
+
+To quickly test the model with pre-trained weights, use `test.py`:
+
+```bash
+python test.py --model_path downloads/srgan_generator.h5 --image_path path/to/your/image.jpg
+```
+
+- Replace `--image_path` with the path to your input low-resolution image.
+
+---
+
+## 🏗️ Architecture Diagram
+
+Below is the architecture of the SRGAN used in this project:
+
+```
++-------------------+       +-------------------+
+|   Low-Res Input   |       |   High-Res Output |
++-------------------+       +-------------------+
+          |                           ^
+          |                           |
+    +-----------+       +---------------------+
+    | Generator | --->   |     Discriminator  |
+    +-----------+       +---------------------+
+```
+
+---
+
+## 📚 Use Cases
+
+- **Satellite Image Analysis**: Enhance low-resolution satellite imagery for better interpretation.
+- **Medical Imaging**: Improve the resolution of medical scans (e.g., MRIs, CT scans).
+- **Historical Image Restoration**: Upscale and restore old, low-quality photographs.
+- **Video Streaming**: Enhance video quality during streaming.
+
+---
+
 ## 📊 Performance Metrics
 
 - **SSIM (Structural Similarity Index)**: Measures the similarity between the ground truth and predicted high-resolution images.
@@ -94,9 +134,7 @@ python image_upscale_eval.py
 
 Sample comparison of images:
 
-| Downscaled (32x32) | Predicted (128x128) | Ground Truth (128x128) |
-|--------------------|---------------------|------------------------|
-| ![32x32](path-to-example) | ![128x128-predicted](path-to-example) | ![128x128-ground-truth](path-to-example) |
+ ![128x128-ground-truth](path-to-example)
 
 ---
 
