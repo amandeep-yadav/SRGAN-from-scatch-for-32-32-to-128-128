@@ -158,6 +158,6 @@ Contributions are welcome! If you have suggestions for improvements or find bugs
 For queries or collaborations, reach out:
 
 - **Email**: amandeepyadav601@gmail.com
-- **LinkedIn**: [Amandeep Yadav](www.linkedin.com/in/amandeep-yadav-6b5b0a246)
+- **LinkedIn**: [Amandeep Yadav](https://www.linkedin.com/in/amandeep-yadav-6b5b0a246/)
 
 ---
