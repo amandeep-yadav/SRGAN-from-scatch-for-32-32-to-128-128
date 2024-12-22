@@ -125,8 +125,12 @@ Below is the architecture of the SRGAN used in this project:
 
 | Downscaled (32x32) | Predicted (128x128) | Ground Truth (128x128) |
 |--------------------|---------------------|------------------------|
-| ![32x32](https://github.com/amandeep-yadav/SRGAN-from-scatch-for-32-32-to-128-128/blob/main/img/2.PNG) | ![128x128-predicted](https://github.com/amandeep-yadav/SRGAN-from-scatch-for-32-32-to-128-128/blob/main/img/3.PNG) | ![128x128-ground-truth](https://github.com/amandeep-yadav/SRGAN-from-scatch-for-32-32-to-128-128/blob/main/img/10.PNG) |
-| ![32x32](https://github.com/amandeep-yadav/SRGAN-from-scatch-for-32-32-to-128-128/blob/main/img/5.PNG) | ![128x128-predicted](https://github.com/amandeep-yadav/SRGAN-from-scatch-for-32-32-to-128-128/blob/main/img/6.PNG) | ![128x128-ground-truth](https://github.com/amandeep-yadav/SRGAN-from-scatch-for-32-32-to-128-128/blob/main/img/7.PNG) |
+![32x32](https://github.com/amandeep-yadav/SRGAN-from-scatch-for-32-32-to-128-128/blob/main/img/2.PNG) 
+![128x128-predicted](https://github.com/amandeep-yadav/SRGAN-from-scatch-for-32-32-to-128-128/blob/main/img/3.PNG) 
+![128x128-ground-truth](https://github.com/amandeep-yadav/SRGAN-from-scatch-for-32-32-to-128-128/blob/main/img/10.PNG)
+![32x32](https://github.com/amandeep-yadav/SRGAN-from-scatch-for-32-32-to-128-128/blob/main/img/5.PNG) 
+![128x128-predicted](https://github.com/amandeep-yadav/SRGAN-from-scatch-for-32-32-to-128-128/blob/main/img/6.PNG)
+![128x128-ground-truth](https://github.com/amandeep-yadav/SRGAN-from-scatch-for-32-32-to-128-128/blob/main/img/7.PNG)
 
 
 ## 📜 Dependencies
