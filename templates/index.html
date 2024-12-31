@@ -1,1 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Processing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .form-container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .form-container input[type="file"] {
+            margin: 20px 0;
+        }
+        .form-container input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .result img {
+            max-width: 80%;  /* Increase max width */
+            max-height: 600px;  /* Set max height */
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            object-fit: contain;  /* Ensure the aspect ratio is preserved */
+        }
+        .result {
+            margin-top: 20px;
+        }
+        .result h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Image Processing</h2>
+        <form action="/predict" method="post" enctype="multipart/form-data">
+            <label for="image">Upload an image:</label><br>
+            <input type="file" name="image" accept="image/*" required><br><br>
+            <input type="submit" value="Process Image">
+        </form>
+
+        {% if prediction_text %}
+        <div class="result">
+            <p>{{ prediction_text }}</p>
+            {% if original_image %}
+            <h3>Original Image:</h3>
+            <img src="{{ url_for('uploaded_file', filename=original_image) }}" alt="Original Image">
+            {% endif %}
+            {% if processed_image %}
+            <h3>Processed Image:</h3>
+            <img src="{{ url_for('output_file', filename=processed_image) }}" alt="Processed Image">
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
 
