@@ -1,7 +1,10 @@
 from flask import Flask, request, render_template, send_from_directory
 import os
 from PIL import Image
+import numpy as np
+import tensorflow as tf
 from werkzeug.utils import secure_filename
+from tensorflow.keras.preprocessing.image import load_img, img_to_array
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -16,14 +19,25 @@ app.config['OUTPUT_FOLDER'] = os.path.abspath(OUTPUT_FOLDER)
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 os.makedirs(app.config['OUTPUT_FOLDER'], exist_ok=True)
 
-# Dummy image processing function (e.g., upscaling)
+# Load the trained generator model (make sure the model path is correct)
+model_path = '30_gen_model.h5'  # Path to your trained model
+generator = tf.keras.models.load_model(model_path)
+
+# Dummy image processing function using the generator model
 def process_image(image_path, output_path):
-    """Simulates processing an image by resizing it."""
-    img = Image.open(image_path).convert('RGB')  # Open image
-    width, height = img.size
-    # Resize image (double dimensions)
-    processed_img = img.resize((width * 2, height * 2), Image.Resampling.LANCZOS)
-    processed_img.save(output_path)  # Save processed image
+    """Simulates processing an image by using the generator model."""
+    img = load_img(image_path, target_size=(32, 32))  # Resize to match input size (32x32)
+    img_array = img_to_array(img) / 255.0  # Normalize to [0, 1]
+    img_array = np.expand_dims(img_array, axis=0)  # Add batch dimension
+
+    # Use the generator to upscale the image
+    generated_img = generator.predict(img_array)
+
+    # Convert output to image format and save
+    generated_img = np.squeeze(generated_img)  # Remove batch dimension
+    generated_img = (generated_img * 255.0).astype(np.uint8)  # Convert back to [0, 255]
+    generated_img_pil = Image.fromarray(generated_img)
+    generated_img_pil.save(output_path)
 
 @app.route('/')
 def home():
